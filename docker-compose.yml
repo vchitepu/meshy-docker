@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  meshy:
+    build: ./meshy
+    image: meshy
+    ports:
+      - "8889:8889"
+    volumes:
+      - ./output:/output
