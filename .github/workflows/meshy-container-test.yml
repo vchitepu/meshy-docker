@@ -18,7 +18,7 @@ jobs:
       - name: Build image with docker compose
         uses: adambirds/docker-compose-action@v1.3.0
         with:
-          compose-file: "./meshy-docker/docker-compose.yml"
+          compose-file: "docker-compose.yml"
           services: |
             meshy
           up-flags: "--build -d"
