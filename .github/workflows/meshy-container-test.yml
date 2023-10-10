@@ -1,0 +1,23 @@
+name: Build and Test Container
+
+on:
+  push:
+    branches:
+      - '*'
+      - '*/*'
+      - '**'
+      - '!main'
+
+jobs:
+  build_container:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v2
+      - name: Build image with docker compose
+        uses: adambirds/docker-compose-action@v1.3.0
+          with:
+            compose-file: "./meshy-docker/docker-compose.yml"
+            services: |
+              meshy
+            up-flags: "--build -d"
